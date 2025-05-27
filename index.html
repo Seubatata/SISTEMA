@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Controle de Pedidos - Seu Batata</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-b from-yellow-50 via-yellow-100 to-yellow-200 text-black p-4 font-sans">
+  <div class="max-w-3xl mx-auto">
+    <div class="flex items-center justify-center mb-6 animate-fade-in">
+      <img src="https://i.imgur.com/cBqz6Iy.png" alt="Seu Batata" class="h-24 drop-shadow-xl rounded-full border-4 border-yellow-500">
+    </div>
+    <h1 class="text-4xl font-extrabold text-center mb-8 text-yellow-700 animate-pulse">Pedidos - Seu Batata 🍟</h1>
+
+    <div class="bg-white text-black shadow-xl rounded-3xl p-6 mb-8 border-2 border-yellow-300">
+      <h2 class="text-2xl font-bold mb-4 text-center text-yellow-600">📝 Novo Pedido</h2>
+      <form id="pedidoForm" class="space-y-4" onsubmit="return false;">
+        <div>
+          <label class="block text-sm font-semibold mb-1">Nome do Cliente</label>
+          <input type="text" id="nome" class="w-full border rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-yellow-400" required />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1">Telefone</label>
+          <input type="tel" id="telefone" class="w-full border rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-yellow-400" required />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1">Endereço</label>
+          <input type="text" id="endereco" class="w-full border rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-yellow-400" required />
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold mb-2">Batatas Recheadas</label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <label class="flex items-center gap-2 bg-yellow-100 p-2 rounded-lg shadow"><input type="number" min="0" class="produto w-full sm:w-20 p-2 rounded border" data-item="Carne Seca" data-preco="35.90" /> Carne Seca (R$35,90)</label>
+            <label class="flex items-center gap-2 bg-yellow-100 p-2 rounded-lg shadow"><input type="number" min="0" class="produto w-full sm:w-20 p-2 rounded border" data-item="Strogonoff de Carne" data-preco="34.90" /> Strogonoff de Carne (R$34,90)</label>
+            <label class="flex items-center gap-2 bg-yellow-100 p-2 rounded-lg shadow"><input type="number" min="0" class="produto w-full sm:w-20 p-2 rounded border" data-item="Strogonoff de Frango" data-preco="34.90" /> Strogonoff de Frango (R$34,90)</label>
+            <label class="flex items-center gap-2 bg-yellow-100 p-2 rounded-lg shadow"><input type="number" min="0" class="produto w-full sm:w-20 p-2 rounded border" data-item="Frango Cremoso" data-preco="34.90" /> Frango Cremoso (R$34,90)</label>
+            <label class="flex items-center gap-2 bg-yellow-100 p-2 rounded-lg shadow"><input type="number" min="0" class="produto w-full sm:w-20 p-2 rounded border" data-item="Queijo e Bacon" data-preco="32.90" /> Queijo e Bacon (R$32,90)</label>
+            <label class="flex items-center gap-2 bg-yellow-100 p-2 rounded-lg shadow"><input type="number" min="0" class="produto w-full sm:w-20 p-2 rounded border" data-item="Cheddar e Calabresa" data-preco="32.90" /> Cheddar e Calabresa (R$32,90)</label>
+            <label class="flex items-center gap-2 bg-yellow-100 p-2 rounded-lg shadow"><input type="number" min="0" class="produto w-full sm:w-20 p-2 rounded border" data-item="Vegetariana" data-preco="34.90" /> Vegetariana (R$34,90)</label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold mb-2">Bebidas</label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <label class="flex items-center gap-2 bg-yellow-50 p-2 rounded-lg shadow"><input type="number" min="0" class="produto w-full sm:w-20 p-2 rounded border" data-item="Coca-Cola lata 350" data-preco="6.50" /> Coca-Cola lata 350 (R$6,50)</label>
+            <label class="flex items-center gap-2 bg-yellow-50 p-2 rounded-lg shadow"><input type="number" min="0" class="produto w-full sm:w-20 p-2 rounded border" data-item="Guaraná lata 350" data-preco="6.50" /> Guaraná lata 350 (R$6,50)</label>
+            <label class="flex items-center gap-2 bg-yellow-50 p-2 rounded-lg shadow"><input type="number" min="0" class="produto w-full sm:w-20 p-2 rounded border" data-item="Coca-Cola 2L" data-preco="15.00" /> Coca-Cola 2L (R$15,00)</label>
+            <label class="flex items-center gap-2 bg-yellow-50 p-2 rounded-lg shadow"><input type="number" min="0" class="produto w-full sm:w-20 p-2 rounded border" data-item="Guaraná 2L" data-preco="15.00" /> Guaraná 2L (R$15,00)</label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold mb-2">Adicionais</label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <label class="flex items-center gap-2 bg-yellow-50 p-2 rounded-lg shadow"><input type="number" min="0" class="produto w-full sm:w-20 p-2 rounded border" data-item="Catupiry" data-preco="2.00" /> Catupiry (R$2,00)</label>
+            <label class="flex items-center gap-2 bg-yellow-50 p-2 rounded-lg shadow"><input type="number" min="0" class="produto w-full sm:w-20 p-2 rounded border" data-item="Batata Palha" data-preco="3.00" /> Batata Palha (R$3,00)</label>
+            <label class="flex items-center gap-2 bg-yellow-50 p-2 rounded-lg shadow"><input type="number" min="0" class="produto w-full sm:w-20 p-2 rounded border" data-item="Muçarela" data-preco="3.00" /> Muçarela (R$3,00)</label>
+            <label class="flex items-center gap-2 bg-yellow-50 p-2 rounded-lg shadow"><input type="number" min="0" class="produto w-full sm:w-20 p-2 rounded border" data-item="Bacon" data-preco="4.00" /> Bacon (R$4,00)</label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold mb-1">Forma de Pagamento</label>
+          <select id="pagamento" class="w-full border rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+            <option value="Pix">Pix</option>
+            <option value="Dinheiro">Dinheiro</option>
+            <option value="Cartão">Cartão</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold mb-1">Troco para quanto?</label>
+          <input type="number" id="troco" class="w-full border rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-yellow-400" placeholder="Apenas se for em dinheiro" />
+        </div>
+
+        <div class="text-center my-4">
+          <div id="totalTemp" class="text-2xl font-bold text-yellow-700">Total: R$ 0,00</div>
+        </div>
+
+        <div class="flex justify-center">
+          <button type="button" onclick="gerarPedido()" class="bg-yellow-500 text-black px-8 py-3 rounded-full shadow-lg hover:bg-yellow-600 transition transform hover:scale-105">Gerar Pedido</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="bg-yellow-50 text-black shadow-inner rounded-3xl p-6 border-2 border-yellow-400">
+      <h2 class="text-2xl font-bold mb-4 text-center text-yellow-700">📦 Pedidos</h2>
+      <ul id="listaPedidos" class="space-y-4"></ul>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('pedidoForm');
+    const listaPedidos = document.getElementById('listaPedidos');
+    let pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+
+    function salvarPedidos() {
+      localStorage.setItem('pedidos', JSON.stringify(pedidos));
+    }
+
+    function atualizarLista() {
+      listaPedidos.innerHTML = '';
+      pedidos.forEach((p, i) => {
+        const li = document.createElement('li');
+        li.className = 'p-4 bg-white rounded-2xl shadow flex flex-col sm:flex-row sm:justify-between sm:items-center border border-yellow-300 hover:scale-105 transition';
+        li.innerHTML = `
+          <div class="mb-2 sm:mb-0">
+            <p class="font-bold text-yellow-700">${p.nome}</p>
+            <p class="text-sm text-gray-600">${p.telefone} | ${p.endereco}</p>
+            <p class="text-sm">Produtos: ${p.produtos.join(', ')}</p>
+            <p class="text-sm font-semibold">Total: R$${p.total.toFixed(2)}</p>
+            <p class="text-sm">Pagamento: ${p.pagamento}${p.troco ? ' | Troco: R$' + p.troco : ''}</p>
+          </div>
+          <div class="flex gap-2 mt-2 sm:mt-0">
+            <button onclick="imprimirPedido(${i})" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition">Imprimir</button>
+            <button onclick="marcarEntregue(${i})" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition">Entregue</button>
+          </div>
+        `;
+        listaPedidos.appendChild(li);
+      });
+    }
+
+    function gerarPedido() {
+      const nome = document.getElementById('nome').value;
+      const telefone = document.getElementById('telefone').value;
+      const endereco = document.getElementById('endereco').value;
+      const pagamento = document.getElementById('pagamento').value;
+      const troco = document.getElementById('troco').value;
+
+      const produtosSelecionados = Array.from(document.querySelectorAll('.produto'));
+      const produtos = [];
+      let total = 0;
+
+      produtosSelecionados.forEach(input => {
+        const qtd = parseInt(input.value);
+        if (qtd > 0) {
+          const nome = input.getAttribute('data-item');
+          const preco = parseFloat(input.getAttribute('data-preco'));
+          produtos.push(`${qtd}x ${nome}`);
+          total += qtd * preco;
+        }
+      });
+
+      const pedido = { nome, telefone, endereco, produtos, total, pagamento, troco };
+      pedidos.push(pedido);
+      salvarPedidos();
+      atualizarLista();
+      form.reset();
+      calcularTotalEmTempoReal();
+    }
+
+    function imprimirPedido(index) {
+      const p = pedidos[index];
+      const win = window.open('', '_blank');
+      win.document.write(`
+        <html><head><title>Pedido</title><style>
+        body { font-family: monospace; font-size: 12px; width: 56mm; }
+        .linha { margin-bottom: 6px; }
+        </style></head><body onload="window.print(); window.onafterprint = window.close();">
+        <div class="linha"><strong>Seu Batata</strong></div>
+        <div class="linha">Cliente: ${p.nome}</div>
+        <div class="linha">Telefone: ${p.telefone}</div>
+        <div class="linha">Endereço: ${p.endereco}</div>
+        <hr />
+        <div class="linha">Produtos:</div>
+        ${p.produtos.map(item => `<div class="linha">- ${item}</div>`).join('')}
+        <hr />
+        <div class="linha">Total: R$${p.total.toFixed(2)}</div>
+        <div class="linha">Pagamento: ${p.pagamento}</div>
+        ${p.troco ? `<div class="linha">Troco para: R$${p.troco}</div>` : ''}
+        <div class="linha">--- Obrigado! ---</div>
+        </body></html>
+      `);
+      win.document.close();
+    }
+
+    function marcarEntregue(index) {
+      pedidos.splice(index, 1);
+      salvarPedidos();
+      atualizarLista();
+    }
+
+    function calcularTotalEmTempoReal() {
+      const produtosSelecionados = Array.from(document.querySelectorAll('.produto'));
+      let total = 0;
+
+      produtosSelecionados.forEach(input => {
+        const qtd = parseInt(input.value) || 0;
+        const preco = parseFloat(input.getAttribute('data-preco'));
+        total += qtd * preco;
+      });
+
+      document.getElementById('totalTemp').textContent = 'Total: R$ ' + total.toFixed(2);
+    }
+
+    document.querySelectorAll('.produto').forEach(input => {
+      input.addEventListener('input', calcularTotalEmTempoReal);
+    });
+
+    atualizarLista();
+  </script>
+
+  <style>
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fade-in 1s ease-out;
+    }
+  </style>
+</body>
+</html>
